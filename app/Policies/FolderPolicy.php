@@ -3,6 +3,7 @@
 namespace App\Policies;
 
 use App\Models\User;
+use App\Models\Folder;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 class FolderPolicy
@@ -14,6 +15,10 @@ class FolderPolicy
      *
      * @return void
      */
+    public function view(User $user, Folder $folder)
+    {
+        return $user->id === $folder->user_id;
+    }
     public function __construct()
     {
         //

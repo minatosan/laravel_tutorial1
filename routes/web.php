@@ -27,4 +27,10 @@ Route::group(['middleware' => 'auth'], function() {
     Route::post('/folders/{id}/tasks/{task_id}/edit', 'TaskController@edit');
 });
 
+/*
+Route::group(['middleware' => 'can:view,folder'], function() {
+    Route::get('/folders/{folder}/tasks', 'TaskController@index')->name('tasks.index');
+});
+*/
+
 Auth::routes();
